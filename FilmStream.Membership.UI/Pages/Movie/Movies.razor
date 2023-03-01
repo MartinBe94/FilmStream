@@ -1,0 +1,35 @@
+﻿@page "/movies/"
+@inject IMembershipService Service
+<h3>Movies</h3>
+
+<div class="d-flex flex-wrap flex-column justify-content-between">
+    
+     <Menu></Menu>
+    @foreach (var movie in Movie)
+    {
+        <div class="card" style="width: 18rem;">
+            <img src="/images/@picture[movie.Id]" class="card-img-top rounded-0" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@movie.Title</h5>
+                <p class="card-text">Description: @movie.Description</p>
+                <h5 class="card-title">Release Date: @movie.Released</h5>
+                <p class="card-text">Free: @movie.Free</p>
+                <a href="movieplayer/@movie.Id" class="btn btn-warning rounded-0">Watch</a>
+            </div>
+        </div>
+
+    }
+
+
+</div>
+
+@code {
+    public List<FilmBaseDTO> Movie { get; set; } = new();
+
+    public List<string> picture = new List<string> { "","Deadpool.jpg", "spider-man no way home.jpg", "batman the dark knight.jpg", "scarface.jpg" };
+
+    protected override async Task OnInitializedAsync()
+    {
+        Movie = await Service.GetFilmAsync(false);
+    }
+}

@@ -1,0 +1,35 @@
+﻿@page "/{Route}"
+
+<h1>@Route</h1>
+
+@if (Route.Equals(Routes.Genres))
+{
+    <FilmStream.Admin.UI.Pages.Genres.GenresPortal/>
+}
+
+@if (Route.Equals(Routes.FilmGenres))
+{
+    <FilmStream.Admin.UI.Pages.FilmGenres.FilmGenresPortal/>
+}
+
+@if (Route.Equals(Routes.Films))
+{
+    <FilmStream.Admin.UI.Pages.Films.FilmsPortal/>
+}
+
+@if (Route.Equals(Routes.Directors))
+{
+    <FilmStream.Admin.UI.Pages.Directors.DirectorsPortal/>
+}
+
+@if (Route.Equals(Routes.SimilarFilms))
+{
+    <FilmStream.Admin.UI.Pages.SimilarFilms.SimilarFilmsPortal/>
+}
+
+@code {
+    
+    [Parameter] public string Route { get; set; } = "";
+
+
+}

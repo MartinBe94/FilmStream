@@ -1,0 +1,33 @@
+﻿@*@foreach (var i in picture)
+{
+    <div class="card" style="width: 18rem;">
+        <img src="/images/@i" class="card-img-top rounded-0" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">@Movie.Title</h5>
+            <p class="card-text">Description: @Movie.Description</p>
+            <h5 class="card-title">Release Date: @Movie.Released</h5>
+            <p class="card-text">Free: @Movie.Free</p>
+            <a href="movieplayer/@Movie.Id" class="btn btn-warning rounded-0">Watch</a>
+        </div>
+    </div>
+
+}*@
+@*
+
+            <div class="card" style="width: 18rem;">
+    <img src="/images/@picture" class="card-img-top rounded-0" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">@Movie.Title</h5>
+            <p class="card-text">Description: @Movie.Description</p>
+            <h5 class="card-title">Release Date: @Movie.Released</h5>
+            <p class="card-text">Free: @Movie.Free</p>
+            <a href="movieplayer/@Movie.Id" class="btn btn-warning rounded-0">Watch</a>
+        </div>
+    </div>
+*@
+
+@code {
+    //[Parameter] public FilmBaseDTO Movie { get; set; } = new();
+    //public List<string> picture = new List<string> { "Action.jpg", "spider-man no way home.jpg", "batman the dark knight.jpg","scarface.jpg" };
+    //int[] count = new int[] { 0, 1, 2, 3 };
+}

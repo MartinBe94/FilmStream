@@ -1,0 +1,12 @@
+﻿<div class="card" style="width: 10rem;">
+    <img src="/images/Action.jpg" class="card-img-top rounded-0" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">@Movie.Title</h5>
+        <a href="movie/@Movie.Id" class="btn btn-warning rounded-0">Watch</a>
+    </div>
+</div>
+
+
+@code {
+    [Parameter] public FilmBaseDTO Movie { get; set; } = new();
+}

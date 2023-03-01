@@ -1,0 +1,31 @@
+﻿@page "/directors/"
+@inject IMembershipService Service
+<h3>Directors</h3>
+
+<div class="d-flex flex-wrap flex-column">
+
+
+    <Menu></Menu>
+    @foreach (var director in Director)
+    {
+        <div class="card" style="width: 18rem;">
+            <img src="/images/@picture[director.Id]" class="card-img-top rounded-0" alt="...">
+             <div class="card-body">
+        <h5 class="card-title">@director.Name</h5>
+        <a href="director/@director.Id" class="btn btn-warning rounded-0">Watch</a>
+    </div>
+        </div>
+
+    }
+
+</div>
+
+@code {
+    public List<DirectorDTO> Director { get; set; } = new();
+    public List<string> picture = new List<string> { "", "Tim Miller.jpg", "Jon Watts.jpg", "Christopher Nolan.jpg", "Brian De Palma.jpg" };
+
+    protected override async Task OnInitializedAsync()
+    {
+        Director = await Service.GetDirectorAsync(false);
+    }
+}

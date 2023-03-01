@@ -1,0 +1,81 @@
+﻿@inject IAdminService AdminService
+
+<div class="d-xl-flex justify-content-center">
+    <EditForm Model="@Model" OnValidSubmit="@OnFormSubmit" class="mb-5 border border-1 border-secondary p-2 w-25">
+        <DataAnnotationsValidator />
+        <h4>@Page SimilarFilm</h4>
+        <div class="mb-3">
+            @if (Page.Equals(PageType.Delete))
+            {
+                <InputNumber id="filmId" class="form-control me-2" @bind-Value="Model.FilmId" disabled placeholder="FilmId"></InputNumber>
+            }
+            else
+            {
+                <InputNumber id="filmId" class="form-control me-2" @bind-Value="Model.FilmId" placeholder="FilmId"></InputNumber>
+            }
+            <ValidationMessage For="@(() => Model.FilmId)" />
+        </div>
+        @if (!Page.Equals(PageType.Delete))
+        {
+            <div class="mb-3">
+                <InputNumber id="similarfilmId" class="form-control me-2" @bind-Value="Model.SimilarFilmId" placeholder="SimilarFilmId"></InputNumber>
+                <ValidationMessage For="@(() => Model.SimilarFilmId)" />
+            </div>
+
+            <InputSelect @bind-Value="Model.FilmId" class="form-control mb-3">
+                <option value=0>Film ...</option>
+                @foreach (var film in Films)
+                {
+                    <option value="@film.Id">@film.Title</option>
+                }
+            </InputSelect>
+
+
+            <InputSelect @bind-Value="Model.SimilarFilmId" class="form-control mb-3">
+                <option value=0>SimilarFilm ...</option>
+                @foreach (var film in Films)
+                {
+                    <option value="@film.Id">@film.Title</option>
+                }
+            </InputSelect>
+
+        }
+        <button type="submit" class="btn btn-@(Page.Equals(PageType.Delete) ? "danger" : "primary") rounded-0">@Page</button>
+    </EditForm>
+</div>
+
+@code {
+
+    [Parameter] public SimilarFilmDTO Model { get; set; } = new();
+    [Parameter] public FilmBaseDTO FilmModel { get; set; } = new();
+    [Parameter] public string Page { get; set; } = string.Empty;
+    [Parameter] public EventCallback<string> OnChanged { get; set; }
+    List<FilmDTO> Films { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        Films = await AdminService.GetAsync<FilmDTO>("films");
+    }
+
+    private async Task OnFormSubmit()
+    {
+        try
+        {
+            if (Page.Equals(PageType.Create))
+                await AdminService.CreateAsync<SimilarFilmBaseDTO>("similarfilms", Model);
+
+            else if (Page.Equals(PageType.Edit))
+
+                await AdminService.EditAsync<SimilarFilmBaseDTO>($"similarfilms", Model);
+            else if (Page.Equals(PageType.Delete))
+
+                await AdminService.DeleteAsync<SimilarFilmBaseDTO>($"film/{Model.FilmId}/similarfilm/{Model.SimilarFilmId}");
+
+            await OnChanged.InvokeAsync("");
+        }
+        catch
+        {
+            await OnChanged.InvokeAsync("Couldn't create/edit/delete the similarfilm.");
+        }
+    }
+}

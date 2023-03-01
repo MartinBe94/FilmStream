@@ -1,0 +1,31 @@
+﻿@page "/movieplayer/{Id:int}"
+@inject IMembershipService Service
+
+
+<div class="d-flex flex-column">
+    <a href="/movie/@Id" class="btn btn-primary rounded-0 mb-1">
+        <i class="oi oi-arrow-left"></i>
+        <a class="vertical-align text-white" href="Movies/">Back to Movies</a>
+    </a>
+    @if (Movie is not null && Movie.FilmUrl is not null)
+    {
+        <div class="d-flex flex-column align-self-stretch video-player">
+            <iframe src="@Movie.FilmUrl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <h3 class="mt-3">@Movie.Title</h3>
+        <p>Description: @Movie.Description</p>
+        <p>Release Date: @Movie.Released</p>
+        <p>Free: @Movie.Free</p>
+    }
+</div>
+
+
+@code {
+    [Parameter] public int Id { get; set; }
+    public FilmBaseDTO Movie { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Movie = await Service.GetFilmAsync(Id);
+    }
+}

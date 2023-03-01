@@ -1,0 +1,33 @@
+﻿@page "/genres/"
+@inject IMembershipService Service
+<h3>Genres</h3>
+
+<div class="d-flex flex-wrap flex-column m-5">
+
+    <Menu></Menu>
+    @foreach (var genre in Genre)
+    {
+        <div class="card text-bg-dark width: 15rem m-5">
+            <img src="/images/@picture[genre.Id]" class="card-img-top rounded-0" alt="...">
+            <div class="card-img-overlay">
+               @* <h5 class="card-title">@genre.Name</h5>*@
+                <p class="card-text">@genre.Name</p>
+                <a href="@genre.Name/" class="btn btn-warning rounded-0">View Movies</a>
+            </div>
+        </div>
+
+
+    }
+</div>
+
+@code {
+    public List<GenreBaseDTO> Genre { get; set; } = new();
+
+
+    public List<string> picture = new List<string> { "", "action.jpg", "Adventure.jpg", "Sci-Fi.jpg", "horror.jpg","drama.jpg","criminal.jpg" };
+
+    protected override async Task OnInitializedAsync()
+    {
+        Genre = await Service.GetGenreAsync(false);
+    }
+}

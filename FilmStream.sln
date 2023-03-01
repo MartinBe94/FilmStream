@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmStream.Admin.UI", "FilmStream.Admin.UI\FilmStream.Admin.UI.csproj", "{2C48B96B-0C63-41FC-8BC1-D9EAC1817656}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client-Side", "Client-Side", "{1283C1E6-0453-46FC-844E-9D193F7C916A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Server-Side", "Server-Side", "{72008251-3A62-45B0-BF3D-ADA902B51F11}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmStream.Membership.API", "FilmStream.Membership.API\FilmStream.Membership.API.csproj", "{A277518D-77D0-4539-A2CB-103875361C7B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmStream.Common", "FilmStream.Common\FilmStream.Common.csproj", "{189EA8B4-DA69-4C26-86EE-3C3081229DBA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmStream.Database", "FilmStream.Database\FilmStream.Database.csproj", "{408D05D4-9996-4514-9E0B-A9ECFB689C28}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FilmStream.Membership.UI", "FilmStream.Membership.UI\FilmStream.Membership.UI.csproj", "{AE89584F-A9E6-40A1-8DF8-E9D2515FCD1C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2C48B96B-0C63-41FC-8BC1-D9EAC1817656}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C48B96B-0C63-41FC-8BC1-D9EAC1817656}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C48B96B-0C63-41FC-8BC1-D9EAC1817656}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C48B96B-0C63-41FC-8BC1-D9EAC1817656}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A277518D-77D0-4539-A2CB-103875361C7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A277518D-77D0-4539-A2CB-103875361C7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A277518D-77D0-4539-A2CB-103875361C7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A277518D-77D0-4539-A2CB-103875361C7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{189EA8B4-DA69-4C26-86EE-3C3081229DBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{189EA8B4-DA69-4C26-86EE-3C3081229DBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{189EA8B4-DA69-4C26-86EE-3C3081229DBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{189EA8B4-DA69-4C26-86EE-3C3081229DBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{408D05D4-9996-4514-9E0B-A9ECFB689C28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{408D05D4-9996-4514-9E0B-A9ECFB689C28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{408D05D4-9996-4514-9E0B-A9ECFB689C28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{408D05D4-9996-4514-9E0B-A9ECFB689C28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE89584F-A9E6-40A1-8DF8-E9D2515FCD1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE89584F-A9E6-40A1-8DF8-E9D2515FCD1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE89584F-A9E6-40A1-8DF8-E9D2515FCD1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE89584F-A9E6-40A1-8DF8-E9D2515FCD1C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2C48B96B-0C63-41FC-8BC1-D9EAC1817656} = {72008251-3A62-45B0-BF3D-ADA902B51F11}
+		{A277518D-77D0-4539-A2CB-103875361C7B} = {72008251-3A62-45B0-BF3D-ADA902B51F11}
+		{189EA8B4-DA69-4C26-86EE-3C3081229DBA} = {72008251-3A62-45B0-BF3D-ADA902B51F11}
+		{408D05D4-9996-4514-9E0B-A9ECFB689C28} = {72008251-3A62-45B0-BF3D-ADA902B51F11}
+		{AE89584F-A9E6-40A1-8DF8-E9D2515FCD1C} = {1283C1E6-0453-46FC-844E-9D193F7C916A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {20EB4D4B-BE6E-4E15-A6D4-1E36DD86E93C}
+	EndGlobalSection
+EndGlobal

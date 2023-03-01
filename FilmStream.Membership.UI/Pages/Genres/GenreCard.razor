@@ -1,0 +1,12 @@
+﻿<div class="card text-bg-dark width: 20rem;">
+    <img src="/images/Action.jpg" class="card-img-top rounded-0" alt="...">
+    <div class="card-img-overlay">
+        <h5 class="card-title">@Genre.Name</h5>
+        <p class="card-text">@Genre.Name</p>
+        <a href="@Genre.Name/" class="btn btn-warning rounded-0">View Movies</a>
+    </div>
+</div>
+
+@code {
+    [Parameter] public GenreBaseDTO Genre { get; set; } = new();
+}

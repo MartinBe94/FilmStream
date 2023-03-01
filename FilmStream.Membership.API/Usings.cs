@@ -1,0 +1,12 @@
+﻿global using FilmStream.Database.Contexts;
+global using Microsoft.EntityFrameworkCore;
+global using FilmStream.Common.DTOs;
+global using FilmStream.Database.Entities;
+global using FilmStream.Database.Interfaces;
+global using Microsoft.AspNetCore.Mvc;
+global using static System.Collections.Specialized.BitVector32;
+global using FilmStream.Data.Interfaces;
+global using FilmStream.Common.DTOs;
+global using FilmStream.Database.Entities;
+global using FilmStream.Database.Interfaces;
+global using FilmStream.Database.Services;

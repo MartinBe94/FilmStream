@@ -1,0 +1,14 @@
+﻿<a href="movieplayer/@TheMovie.Id" class="text-decoration-none">
+    <div class="d-flex border border-secondary mb-3">
+        <img src="images/@TheMovie.Title" style="max-width: 150px;" class="img-fluid rounded-0" alt="Image of @TheMovie.Title">
+        <div class="d-flex flex-column p-3 flex-fill">
+            <h5 class="mb-0">@TheMovie.Title</h5>
+            <p class="mb-0">@TheMovie.Description</p>
+            <p class="cmb-0"><small class="text-muted">@TheMovie.Released</small></p>
+        </div>
+    </div>
+</a>
+
+@code {
+    [Parameter] public FilmDTO TheMovie { get; set; } = new();
+}

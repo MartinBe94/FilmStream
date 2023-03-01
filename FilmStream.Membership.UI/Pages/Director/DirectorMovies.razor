@@ -1,0 +1,31 @@
+﻿@page "/director/{Id:int}"
+@inject IMembershipService Service
+<h3>DirectorMovies</h3>
+
+<div class="d-flex flex-column">
+    <a href="Movies/" class="btn btn-primary rounded-0 mb-1">
+        <i class="oi oi-arrow-left"></i>
+        <a class="vertical-align text-white" href="Movies/">Back to Movies</a>
+    </a>
+
+    <div class="card" style="width: 10rem;">
+        <img src="/images/@picture[Id]" class="card-img-top rounded-0" alt="...">
+        <div class="card-body">
+         @*   <h5 class="card-title">@Movie[Id--].Title</h5>*@
+            <a href="movieplayer/@Id" class="btn btn-warning rounded-0">Watch</a>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public int Id { get; set; }
+    [Parameter] public List<FilmBaseDTO> Movie { get; set; } = new();
+    [Parameter] public FilmBaseDTO DirectorMovie { get; set; } = new();
+
+    public List<string> picture = new List<string> { "", "Deadpool.jpg", "spider-man no way home.jpg", "batman the dark knight.jpg", "scarface.jpg" };
+
+    protected override async Task OnInitializedAsync()
+    {
+        Movie = await Service.GetFilmAsync(false);
+    }
+}

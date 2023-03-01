@@ -1,0 +1,11 @@
+﻿<div class="card" style="width: 10rem;">
+    <img src="/images/Action.jpg" class="card-img-top rounded-0" alt="...">
+    <div class="card-body">
+        <h5 class="card-title">@Director.Name</h5>
+        <a href="director/@Director.Id" class="btn btn-warning rounded-0">Watch</a>
+    </div>
+</div>
+
+@code {
+    [Parameter] public DirectorDTO Director { get; set; } = new();
+}
