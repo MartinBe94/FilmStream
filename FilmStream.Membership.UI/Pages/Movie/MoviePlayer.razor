@@ -16,13 +16,16 @@
         <p>Description: @Movie.Description</p>
         <p>Release Date: @Movie.Released</p>
         <p>Free: @Movie.Free</p>
-    }
+
+        }
 </div>
 
 
 @code {
     [Parameter] public int Id { get; set; }
     public FilmBaseDTO Movie { get; set; }
+
+    public List<string> picture = new List<string> { "", "Deadpool.jpg", "spider-man no way home.jpg", "batman the dark knight.jpg", "scarface.jpg" };
 
     protected override async Task OnInitializedAsync()
     {

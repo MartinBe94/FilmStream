@@ -2,13 +2,14 @@
 @inject IMembershipService Service
 <h3>Directors</h3>
 
-<div class="d-flex flex-wrap flex-column">
+<div class="d-flex flex-wrap flex-column justify-content-center ">
 
 
     <Menu></Menu>
+    <div class="d-flex flex-wrap justify-content-between ">
     @foreach (var director in Director)
     {
-        <div class="card" style="width: 18rem;">
+        <div class="card d-flex flex-wrap flex-column justify-content-between" style="width: 18rem;">
             <img src="/images/@picture[director.Id]" class="card-img-top rounded-0" alt="...">
              <div class="card-body">
         <h5 class="card-title">@director.Name</h5>
@@ -17,7 +18,7 @@
         </div>
 
     }
-
+    </div>
 </div>
 
 @code {

@@ -6,6 +6,8 @@
         Task<DirectorDTO> GetDirectorAsync(int id);
         Task<List<FilmBaseDTO>> GetFilmAsync(bool freeOnly = false);
         Task<FilmDTO> GetFilmAsync(int? id);
+        Task<List<SimilarFilmBaseDTO>> GetSimilarFilmAsync();
+        Task<SimilarFilmBaseDTO> GetSimilarFilmAsync(int filmId, int similarId);
         Task<List<GenreBaseDTO>> GetGenreAsync(bool freeOnly = false);
         Task<GenreBaseDTO> GetGenreAsync(int id);
         Task<List<FilmGenreBaseDTO>> GetFilmGenreAsync();

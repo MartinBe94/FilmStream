@@ -1,4 +1,4 @@
-﻿<a href="movieplayer/@TheMovie.Id" class="text-decoration-none">
+﻿@*<a href="movieplayer/@TheMovie.Id" class="text-decoration-none">
     <div class="d-flex border border-secondary mb-3">
         <img src="images/@TheMovie.Title" style="max-width: 150px;" class="img-fluid rounded-0" alt="Image of @TheMovie.Title">
         <div class="d-flex flex-column p-3 flex-fill">
@@ -9,6 +9,25 @@
     </div>
 </a>
 
+
+<h1 class="d-flex justify-content-center">Similar Films</h1>
+<div class="d-flex justify-content-between ">
+    @foreach (var movie in SimilarMovie)
+    {
+        <div class="card d-flex flex-wrap justify-content-between " style="width: 10rem;">
+            <img src="/images/@picture[movie.SimilarFilmId]" class="card-img-top rounded-0" alt="...">
+            <div class="card-body">
+                <h5 class="card-title" style="width: 7rem;">@TheMovie.Title</h5>
+                <p class="card-text" style="width: 7rem;">Free: @TheMovie.Free</p>
+                <a href="movieplayer/@movie.FilmId" class="btn btn-warning rounded-0">Watch</a>
+            </div>
+        </div>
+    }
+</div>
+
 @code {
     [Parameter] public FilmDTO TheMovie { get; set; } = new();
+    public List<string> picture = new List<string> { "", "Deadpool.jpg", "spider-man no way home.jpg", "batman the dark knight.jpg", "scarface.jpg" };
+    [Parameter] public List<SimilarFilmBaseDTO> SimilarMovie { get; set; } = new();
 }
+*@

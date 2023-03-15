@@ -2,12 +2,13 @@
 @inject IMembershipService Service
 <h3>Movies</h3>
 
-<div class="d-flex flex-wrap flex-column justify-content-between">
+<div class="d-flex flex-wrap flex-column justify-content-center ">
     
      <Menu></Menu>
+    <div class="d-flex flex-wrap justify-content-between ">
     @foreach (var movie in Movie)
     {
-        <div class="card" style="width: 18rem;">
+        <div class="card d-flex flex-wrap flex-column justify-content-between" style="width: 18rem;">
             <img src="/images/@picture[movie.Id]" class="card-img-top rounded-0" alt="...">
             <div class="card-body">
                 <h5 class="card-title">@movie.Title</h5>
@@ -21,6 +22,7 @@
     }
 
 
+</div>
 </div>
 
 @code {

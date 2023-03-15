@@ -29,6 +29,7 @@ public class MembershipService : IMembershipService
         }
     }
 
+
     public async Task<FilmDTO> GetFilmAsync(int? id)//, bool freeOnly)
     {
         try
@@ -51,6 +52,47 @@ public class MembershipService : IMembershipService
         }
     }
 
+    public async Task<List<SimilarFilmBaseDTO>> GetSimilarFilmAsync()
+    {
+        try
+        {
+
+            using HttpResponseMessage response = await _http.Client.GetAsync($"similarfilms");
+            response.EnsureSuccessStatusCode();
+
+            var result = JsonSerializer.Deserialize<List<SimilarFilmBaseDTO>>(await
+                response.Content.ReadAsStreamAsync(), new JsonSerializerOptions
+                { PropertyNameCaseInsensitive = true });
+
+            return result ?? new();
+        }
+        catch
+        {
+            throw;
+        }
+
+    }
+
+    public async Task <SimilarFilmBaseDTO> GetSimilarFilmAsync(int filmId,int similarId)
+    {
+        try
+        {
+
+
+            using HttpResponseMessage response = await _http.Client.GetAsync($"film/{filmId}similarfilm/{similarId}");
+            response.EnsureSuccessStatusCode();
+
+            var result = JsonSerializer.Deserialize<SimilarFilmBaseDTO>(await
+                response.Content.ReadAsStreamAsync(), new JsonSerializerOptions
+                { PropertyNameCaseInsensitive = true });
+
+            return result ?? new();
+        }
+        catch
+        {
+            throw;
+        }
+    }
 
     public async Task<List<FilmGenreBaseDTO>> GetFilmGenreAsync()
     {
